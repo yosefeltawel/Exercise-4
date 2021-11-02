@@ -10,11 +10,11 @@ namespace Schema
             Insert.IntoTable("Pizza")
                 .Row(new
                 { 
-                    Name = "Cheddar Cheese", Price = 105, Ingredients = "Italian Sausage, Tomato, Onions, Green Pepper, Jalapeno"
+                    Name = "Cheddar Cheese", Price = 105, Ingredients = "Our pizza sauce combined with authentic Cheddar cheese and Mozzarella."
                 })
                 .Row(new
                 {
-                    Name = "Hot Spicy", Price = 115,
+                    Name = "Hot & Spicy", Price = 115,
                     Ingredients = "Italian Sausage, Tomato, Onions, Green Pepper, Jalapeno"
                 })
                 .Row(new

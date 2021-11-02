@@ -1,0 +1,41 @@
+﻿@page "{id:int}"
+@model PizzaStoreRazor.Pages.PizzaDetails
+@{
+    ViewData["Title"] = "Pizza Page";
+}
+
+<div class="extras-container">
+    <form method="post">
+        <div class="row">
+
+            <h3 class="display-4 col-12 text-center">Do you want to add any extra on your pizza?</h3>
+            @{
+                int i = 0;
+                foreach (var topping in Model.ToppingList)
+                {
+                    <div class="col-3">
+                        <div class="topping">
+                            <img src="~/Images/Toppings/Sauce.jpg" title="Pizza Sauce"/>
+                            <div class="p-2">
+                                <h2 class="text-center">@topping.Name</h2>
+                                <div class="form">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="Toppings" value="@topping.Id" id="flexCheck_@topping.Id">
+                                        <label class="form-check-label" for="flexCheck_@topping.Id">
+                                            Price @topping.Price
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-success">Save</button>
+        </div>
+    </form>
+
+</div>

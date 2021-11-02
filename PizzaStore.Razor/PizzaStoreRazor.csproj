@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\PizzaStore.Data\DatabaseGeneric\PizzaStore.Data.csproj" />
+      <ProjectReference Include="..\PizzaStore.Data\DatabaseSpecific\PizzaStore.DataDBSpecific.csproj" />
+      <ProjectReference Include="..\PizzaStore.Data\ViewModels.Persistence\ViewModels.Persistence.csproj" />
+      <ProjectReference Include="..\PizzaStore.Data\ViewModels\ViewModels.csproj" />
+      <ProjectReference Include="..\PizzaStore\PizzaStore.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="SD.LLBLGen.Pro.ORMSupportClasses" Version="5.8.3" />
+    </ItemGroup>
+
+</Project>

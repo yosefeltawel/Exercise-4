@@ -1,0 +1,53 @@
+﻿@page
+@model PizzaStoreRazor.Pages.ShoppingCart
+
+@{
+    ViewData["title"] = "Shopping Cart";
+}
+<body class="shoppingCart-body">
+<div class="order-container">
+    <div class="row">
+
+        <h2 class="display-4 col-l2 text-center">Your Cart</h2>
+        @{
+            foreach (var pizza in Model.CartPizzas)
+            {
+                <div class="cart-pizza col-12 m-2 p-2">
+                    <div class="d-flex justify-content-between">
+                        @{
+                            var pizzaDetails = Model.Pizzas.Where(p => p.Id == pizza.Id).FirstOrDefault();
+                        }
+                        <span class="pizza-name">
+                            @pizzaDetails.Name
+                        </span>
+                        <span class="pizza-price">
+                            @pizzaDetails.Price
+                        </span>
+
+                    </div>
+                    <img class="cart-img" src="Images/Pizzas/Cheddar Cheese.jpg" alt="Pizza">
+                    <div class="cart-topping">
+                        @foreach (var topping in pizza.ToppingList)
+                        {
+                            var toppingDetails = Model.Toppings.Where(t => t.Id == topping).FirstOrDefault();
+                            <div class="d-flex justify-content-between">
+
+                                <span class="topping-name">
+                                    @toppingDetails.Name
+                                </span>
+                                <span class="topping-price">
+                                    @toppingDetails.Price
+                                </span>
+                            </div>
+                            <img class="cart-img" src="Images/Toppings/Sauce.jpg" alt="Pizza Sauce">
+                        }
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    <form method="post" class="text-center">
+        <button class="btn btn-success" type="submit">Confirm Order</button>
+    </form>
+</div>
+</body>
